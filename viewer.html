@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MP-CIF · Structure</title>
+  <style>
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #FFFFFF;
+      font-family: 'Segoe UI', 'Microsoft YaHei UI', sans-serif; }
+    #viewer { position: absolute; inset: 0; }
+    #empty { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; pointer-events: none; color: #8E8E93; }
+    #empty .orb { width: 92px; height: 92px; border-radius: 50%; border: 1px solid #d3dfed;
+      box-shadow: inset -14px -14px 28px #dde7f3, 0 15px 50px #d7e4f540; background: #f5f9ff;
+      margin-bottom: 24px; }
+    #empty strong { color: #43536c; font-size: 22px; font-weight: 500; margin-bottom: 10px; }
+    #empty span { font-size: 13px; }
+    #hint { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
+      border: 1px solid #E5E5EA; background: #FFFFFFF2; border-radius: 18px; padding: 9px 18px;
+      color: #8E8E93; font-size: 12px; white-space: nowrap; pointer-events: none; }
+    #caption { position: absolute; top: 16px; left: 20px; font-size: 12px; color: #8E8E93;
+      pointer-events: none; }
+    #caption b { color: #1C1C1E; font-size: 15px; }
+    #legend { position: absolute; top: 14px; right: 14px; z-index: 3; padding: 11px 13px;
+      border: 1px solid #E5E5EA; border-radius: 14px; background: #FFFFFFFD;
+      box-shadow: 0 5px 20px #1C355608; max-width: 214px; }
+    #legend[hidden] { display: none; }
+    .legend-title { color: #8E8E93; font-size: 10px; letter-spacing: 1.5px; margin-bottom: 8px; }
+    #legend-entries { max-height: min(240px, 35vh); overflow-y: auto; }
+    .legend-row { display: flex; align-items: center; gap: 9px; padding: 4px 0; font-size: 12px; color: #1C1C1E; }
+    .legend-ball { width: 15px; height: 15px; flex: 0 0 15px; border-radius: 50%;
+      border: 1px solid #20375420; box-shadow: inset -3px -3px 4px #00000020;
+      background-image: radial-gradient(circle at 30% 25%, #ffffff85, transparent 65%); }
+    .legend-detail { color: #8E8E93; font-size: 11px; margin-left: auto; padding-left: 8px; white-space: nowrap; }
+  </style>
+  <script src="3Dmol-min.js"></script>
+  <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+</head>
+<body>
+  <div id="viewer"></div>
+  <div id="empty"><div class="orb"></div><strong>搜索并选择一个材料</strong><span>结果卡片会显示在这里的 3D 结构</span></div>
+  <div id="caption"></div>
+  <aside id="legend" hidden><div class="legend-title">元素 / ELEMENTS</div><div id="legend-entries"></div></aside>
+  <div id="hint">拖动旋转 · 滚轮缩放 · 右键拖动平移</div>
+  <script src="viewer.js"></script>
+</body>
+</html>

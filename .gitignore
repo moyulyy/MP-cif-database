@@ -1,0 +1,23 @@
+# Large data products (download / build locally, not versioned)
+data/
+*.db
+*.db-journal
+*.part
+fetch.log
+fetch.err.log
+fetch_errors.log
+fetch_done.flag
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+build/
+dist/
+*.spec
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
